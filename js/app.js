@@ -1,10 +1,28 @@
 /*-------------------------------- Constants --------------------------------*/
-let colors = {}
+let colors = {
+  null: ,
+  player1: 1,
+  player2: -1,
+ }
+
+ let win1 = [sq1, sq2, sq3]
+ let win2 = [sq4, sq5, sq6]
+ let win3 = [sq7, sq8, sq9]
+ let win4 = [sq1, sq4, sq7]
+ let win5 = [sq2, sq5, sq8]
+ let win6 = [sq3, sq6, sq9]
+ let win7 = [sq3, sq5, sq7]
+ let win8 = [sq1, sq5, sq9]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
 
 // Variables might include (board/turn/winner)
+let turn = null;
+let board = [sq1, sq2, s3,
+             sq4, sq5, sq6,
+             sq7, sq8, sq9]
+let winner = null;
 
 /*------------------------ Cached Element References ------------------------*/
 
@@ -15,8 +33,8 @@ let colors = {}
 // This is where you should put the event listener
 // for a mouse-click
 document.body.addEventListener('click', (e) =>{
-  let audioVar = new Audio(`/audio/${e.target.id}.mp3`)
-  audioVar.play()
+  e.target.id ===
+  
 })
 
 /*-------------------------------- Functions --------------------------------*/
