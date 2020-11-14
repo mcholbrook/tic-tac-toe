@@ -3,12 +3,12 @@
 //Player 2 = blue, O, -1
 
 let colors = {
-  white: null,
+  'null': 'white',
   '1': 'red',
   '-1': 'blue'
  }
 
- let winCombos = [[sq0, sq1, sq2], [sq3, sq4, sq5], [sq6, sq7, sq8], [sq0, sq3, sq6], [sq1, sq4, sq7], [sq2, sq5, sq8], [sq0, sq4, sq8], [sq2, sq4, sq6]]
+ let winCombos = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -21,7 +21,9 @@ let winner = null;
 /*------------------------ Cached Element References ------------------------*/
 
 // You might choose to put your game status here
-const squares = document.querySelectorAll('.board')
+const squares = Array.from(document.querySelectorAll('.board div'))
+// const squares = document.querySelectorAll('.board')
+console.log(squares)
 const resetButton = document.getElementById('resetButton')
 const message = document.getElementById('message')
 
@@ -55,12 +57,11 @@ function init(){
 function onClick(e){
   let currentSquare = e.target.id
   console.log(currentSquare)
-  if (turn === 1){
-    currentSquare.innerText = 'X'
-  } else {
-    currentSquare.innerText = 'O'
-  }
-  // turn *= -1
+  console.log(Number(currentSquare))
+  board[Number(currentSquare)] = turn
+  render()
+  console.log(board)
+  turn *= -1
 }
 
 // Check winner function:
@@ -77,7 +78,7 @@ function isWinner(){
 // either X or O depending on whose turn it is
 function render(){
   board.forEach(function(square, idx){
-    console.log(square, idx)
+    squares[idx].style.backgroundColor = colors[square]
   })
   if (winner === "T"){
     message.innerHTML = "It's a tie!"
