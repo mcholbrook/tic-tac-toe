@@ -21,15 +21,7 @@ let winner = null;
 /*------------------------ Cached Element References ------------------------*/
 
 // You might choose to put your game status here
-const sq0 = document.getElementById('sq1')
-const sq1 = document.getElementById('sq2')
-const sq2 = document.getElementById('sq3')
-const sq3 = document.getElementById('sq4')
-const sq4 = document.getElementById('sq5')
-const sq5 = document.getElementById('sq6')
-const sq6 = document.getElementById('sq7')
-const sq7 = document.getElementById('sq8')
-const sq8 = document.getElementById('sq9')
+const visualBoard = document.querySelectorAll('.board')
 const resetButton = document.getElementById('resetButton')
 const message = document.getElementById('message')
 
@@ -37,9 +29,7 @@ const message = document.getElementById('message')
 
 // This is where you should put the event listener
 // for a mouse-click
-document.body.addEventListener('click', (e) =>{
-  e.target.id
-})
+document.querySelector('section')('click', onClick)
 resetButton.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -50,7 +40,7 @@ resetButton.addEventListener('click', init)
 // Initialization function:
 // Where you set your initial state, setting up 
 // what the board will look like upon loading
-init()
+
 
 function init(){
   turn = 1
@@ -82,6 +72,13 @@ function render(){
   board.forEach(function(square, idx){
     console.log(square, idx)
   })
+  if (winner === "T"){
+    message.innerHTML = "It's a tie!"
+  } else if (winner) {
+    message.innerHTML = `${winner.toUpperCase()} wins this round!`
+  } else {
+    `It's ${turn.toUpperCase()}'s turn!`
+  }
 }
 
-render()
+init()
