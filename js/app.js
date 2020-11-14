@@ -21,7 +21,7 @@ let winner = null;
 /*------------------------ Cached Element References ------------------------*/
 
 // You might choose to put your game status here
-const visualBoard = document.querySelectorAll('.board')
+const squares = document.querySelectorAll('.board')
 const resetButton = document.getElementById('resetButton')
 const message = document.getElementById('message')
 
@@ -29,7 +29,7 @@ const message = document.getElementById('message')
 
 // This is where you should put the event listener
 // for a mouse-click
-document.querySelector('section')('click', onClick)
+document.querySelector('.board').addEventListener('click', onClick)
 resetButton.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -52,8 +52,15 @@ function init(){
 // On-Click function:
 // Set up what happens when one of the elements
 // is clicked
-function onClick(){
-  if (sq){}
+function onClick(e){
+  let currentSquare = e.target.id
+  console.log(currentSquare)
+  if (turn === 1){
+    currentSquare.innerText = 'X'
+  } else {
+    currentSquare.innerText = 'O'
+  }
+  // turn *= -1
 }
 
 // Check winner function:
@@ -77,7 +84,11 @@ function render(){
   } else if (winner) {
     message.innerHTML = `${winner.toUpperCase()} wins this round!`
   } else {
-    `It's ${turn.toUpperCase()}'s turn!`
+    if (turn === 1){
+      message.innerHTML = `It's player one's turn!`
+    } else {
+      message.innerHTML = `It's player two's turn!`
+    }
   }
 }
 
