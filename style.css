@@ -2,6 +2,9 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 }
 
 section.board {
@@ -19,4 +22,8 @@ div {
   text-align: center;
   vertical-align: middle;
   
+}
+
+#resetButton {
+  width: 100px;
 }

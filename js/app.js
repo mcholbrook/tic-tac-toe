@@ -1,8 +1,11 @@
 /*-------------------------------- Constants --------------------------------*/
+//Player 1 = red, X, 1
+//Player 2 = blue, O, -1
+
 let colors = {
-  null: ,
-  player1: 1,
-  player2: -1,
+  white: null,
+  '1': 'red',
+  '-1': 'blue'
  }
 
  let win1 = [sq1, sq2, sq3]
@@ -19,14 +22,21 @@ let colors = {
 
 // Variables might include (board/turn/winner)
 let turn = null;
-let board = [sq1, sq2, s3,
-             sq4, sq5, sq6,
-             sq7, sq8, sq9]
+let board = []
 let winner = null;
 
 /*------------------------ Cached Element References ------------------------*/
 
 // You might choose to put your game status here
+const sq0 = document.getElementById('sq1')
+const sq1 = document.getElementById('sq2')
+const sq2 = document.getElementById('sq3')
+const sq3 = document.getElementById('sq4')
+const sq4 = document.getElementById('sq5')
+const sq5 = document.getElementById('sq6')
+const sq6 = document.getElementById('sq7')
+const sq7 = document.getElementById('sq8')
+const sq8 = document.getElementById('sq9')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -48,6 +58,9 @@ document.body.addEventListener('click', (e) =>{
 init()
 
 function init(){
+  turn = 1
+  winner = null
+  board = [null, null, null, null, null, null, null, null, null]
 
 }
 
