@@ -9,24 +9,17 @@ let playerText = {
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-
-// Variables might include (board/turn/winner)
 let turn = null
 let board = []
 let winner = null
 
 /*------------------------ Cached Element References ------------------------*/
-
-// You might choose to put your game status here
 const squares = Array.from(document.querySelectorAll('.board div'))
 console.log(squares)
 const resetButton = document.getElementById('resetButton')
 const message = document.getElementById('message')
 
 /*----------------------------- Event Listeners -----------------------------*/
-
-// This is where you should put the event listener
-// for a mouse-click
 document.querySelector('.board').addEventListener('click', onClick)
 resetButton.addEventListener('click', init)
 
