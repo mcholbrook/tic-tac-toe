@@ -3,9 +3,9 @@
 //Player 2 = blue, O, -1
 
 let colors = {
-  'null': 'white',
-  '1': 'red',
-  '-1': 'blue'
+  'null': '',
+  '1': 'X',
+  '-1': 'O'
  }
 
  let winCombos = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
@@ -57,10 +57,8 @@ function init(){
 function onClick(e){
   let currentSquare = e.target.id
   console.log(currentSquare)
-  console.log(Number(currentSquare))
   board[Number(currentSquare)] = turn
   render()
-  console.log(board)
   turn *= -1
 }
 
@@ -78,7 +76,8 @@ function isWinner(){
 // either X or O depending on whose turn it is
 function render(){
   board.forEach(function(square, idx){
-    squares[idx].style.backgroundColor = colors[square]
+    // squares[idx].style.backgroundColor = colors[square]
+    squares[idx].innerText = colors[square]
   })
   if (winner === "T"){
     message.innerHTML = "It's a tie!"
