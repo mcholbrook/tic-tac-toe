@@ -30,16 +30,15 @@ div {
   
 }
 
-#parent{
+#titleText {
   height: 40px;
   white-space: nowrap;
   overflow: hidden;
-  /* position: relative; */
   border-right: solid 3px rgba(0,255,0,.75);
 }
 
 
-#parent {
+#titleText {
   animation: animated-text 2s steps(30,end) 0s 1 normal both,
   animated-cursor 600ms steps(30,end) infinite;
 }
